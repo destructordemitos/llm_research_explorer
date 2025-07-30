@@ -56,7 +56,7 @@ st.markdown(
 )
 
 # --- Add Logo ---
-st.image("images/altusnexus_logo.png", width=200)
+st.image("altusnexus_logo.png", width=200)
 
 # --- Streamlit Layout ---
 st.title("Altus Nexus Research Intelligence")
