@@ -52,6 +52,16 @@ st.markdown(
         padding: 20px;
         margin-top: 20px;
     }
+
+    .rounded-box {
+    border: 2px solid #4CAF50; /* A green border */
+    border-radius: 15px; /* More rounded corners */
+    padding: 25px;
+    margin-bottom: 20px;
+    background-color: #f0fff0; /* A light green background */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* A subtle shadow */
+}
+
     </style>
     """,
     unsafe_allow_html=True
@@ -61,13 +71,14 @@ st.markdown(
 st.image("images/altusnexus_logo.png", width=200)
 
 # --- Streamlit Layout ---
-st.title("Altus Nexus Research Intelligence")
+st.title("AltNex Research Intelligence")
 st.write(
     "This app allows you to query research data in granular topics from OpenAlex and interact with it using a large language model (LLM). "
-    "By default, the model will select the top 100 works based on citation count, but you can adjust the filters to explore different aspects of the research landscape."
+    "By default, the model will select the top 100 works based on citation count for the selected insitutions, the relevant country and global output. You can adjust the filters to explore different aspects of the research landscape."
 )
 
 # --- Filters Section ---
+
 st.subheader("Filters")
 
 # First row: Topic and Start Year
@@ -275,7 +286,7 @@ if st.session_state.get("context") and model:
     summary_prompt = f"""
     You are an experienced consultant specialized in advising higher education institutions in the best research strategies to improve their research impact, with special focus on research collaboration. Provide a concise summary comparing the research output of the institution '{institution_name}' on the topic '{topic}' 
     with the country-level and global outputs. Highlight the main differences, focusing on the institution's strengths 
-    and weaknesses compared to the country and global datasets. Use the following data:
+    and weaknesses compared to the country and global datasets. Include a comparative summary table. Use the following data:
 
     {st.session_state.context}
     """
