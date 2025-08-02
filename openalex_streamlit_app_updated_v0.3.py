@@ -308,7 +308,7 @@ if st.session_state.get("context") and model:
                     deeper_prompt = f"""
                     Provide deeper and detailed insights into the research output of the institution '{institution_name}' 
                     on the topic '{topic}'. Focus on specific areas where the institution excels or lags behind compared to the country 
-                    and global datasets. Include comparative tables. Include actionable recommendations for improvement.
+                    and global datasets. Include comparative tables based on the available data (never include illustrative tables). Include actionable recommendations for improvement.
                     """
                     with st.spinner("Generating deeper insights..."):
                         try:
