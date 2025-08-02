@@ -286,7 +286,7 @@ if st.session_state.get("context") and model:
     summary_prompt = f"""
     You are an experienced consultant specialized in advising higher education institutions in the best research strategies to improve their research impact, with special focus on research collaboration. Provide a concise summary comparing the research output of the institution '{institution_name}' on the topic '{topic}' 
     with the country-level and global outputs. Highlight the main differences, focusing on the institution's strengths 
-    and weaknesses compared to the country and global datasets. Include a comparative summary table. Use the following data:
+    and weaknesses compared to the country and global datasets. Always include a comparative summary table. Use the following data:
 
     {st.session_state.context}
     """
@@ -306,9 +306,9 @@ if st.session_state.get("context") and model:
                 # st.markdown("Would you like more insights about this?")
                 if st.button("Provide more insights"):
                     deeper_prompt = f"""
-                    Based on the previous summary, provide deeper insights into the research output of the institution '{institution_name}' 
+                    Provide deeper and detailed insights into the research output of the institution '{institution_name}' 
                     on the topic '{topic}'. Focus on specific areas where the institution excels or lags behind compared to the country 
-                    and global datasets. Include actionable recommendations for improvement.
+                    and global datasets. Include comparative tables. Include actionable recommendations for improvement.
                     """
                     with st.spinner("Generating deeper insights..."):
                         try:
