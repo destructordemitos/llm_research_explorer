@@ -168,7 +168,7 @@ def search_openalex(query, institution_ids=None, country_code=None, per_page=100
     params = {
         "sort": f"{sort_by}:desc",
         "per_page": per_page,
-        "mailto": "destructordemitos@gmail.com",
+        "mailto": st.secrets["openalex_email"],
         "filter": ",".join(filters),
         "select": select_fields
     }
